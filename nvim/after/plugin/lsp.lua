@@ -1,6 +1,6 @@
 require("mason").setup()
 require("mason-lspconfig").setup {
-    ensure_installed = { "lua_ls", "pyright", "rust_analyzer", "dockerls", "html", "tsserver", "ltex", "sqlls", "solidity" },
+    ensure_installed = { "lua_ls", "pyright", "dockerls", "html", "tsserver", "solidity" },
 }
 
 local lsp = require('lsp-zero').preset({})
@@ -11,10 +11,6 @@ end)
 
 -- (Optional) Configure lua language server for neovim
 require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
-
-require("lspconfig").rust_analyzer.setup({
-    cmd = {'rustup', 'run', 'stable', 'rust-analyzer'}
-})
 
 lsp.setup()
 
